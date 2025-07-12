@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.26",
+    "version": "1.0.27",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
@@ -22,7 +22,7 @@
     ],
     "options": {
         "update_lists_on_start": false,
-        "password": "",
+        "password": "admin",
         "hosts": []
     },
     "schema": {
@@ -35,8 +35,9 @@
             }
         ]
     },
-    "environment": {
-        "TZ": "Europe/Rome"
+     "environment": {
+        "TZ": "Europe/Rome",
+        "WEBPASSWORD": "{options.password}"
     },
     "arch": [
         "amd64",
