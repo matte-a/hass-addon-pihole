@@ -1,0 +1,13 @@
+name: Pi-hole
+version: "1.0.0"
+description: Network-wide ad blocking via Pi-hole.
+url: https://pi-hole.net/
+startup: services
+boot: auto
+webui: http://[HOST]:[PORT:80]/admin
+ports:
+  - 53/tcp
+  - 53/udp
+  - 80/tcp
+  - 443/tcp
+image: "pihole/pihole:latest"
