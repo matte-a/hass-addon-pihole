@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
@@ -14,8 +14,6 @@
     },
     "map": [
         "addon_config:rw",
-        "homeassistant_config:rw",
-        "share:rw",
         "ssl:rw"
     ],
     "options": {

@@ -1,6 +1,6 @@
 FROM pihole/pihole:latest
 
-RUN mkdir -p /data/pihole /data/dnsmasq.d \
+RUN mkdir -p /addon_config/pihole /addon_config/dnsmasq.d \
     && rm -rf /etc/pihole /etc/dnsmasq.d \
-    && ln -s /data/pihole /etc/pihole \
-    && ln -s /data/dnsmasq.d /etc/dnsmasq.d
+    && ln -s /addon_config/pihole /etc/pihole \
+    && ln -s /addon_config/dnsmasq.d /etc/dnsmasq.d
