@@ -9,8 +9,8 @@
   "ports": {
     "53/tcp": 53,
     "53/udp": 53,
-    "94/tcp": 94,
-    "95/tcp": 95
+    "80/tcp": 94,
+    "443/tcp": 95
   },
   "map": ["config:rw", "ssl:rw"],
   "options": {},
