@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
@@ -13,7 +13,8 @@
         "443/tcp": 95
     },
     "map": [
-        "config:rw",
+        "etc-pihole:rw",
+        "etc-dnsmasq.d:rw",
         "ssl:rw"
     ],
     "privileged": [
