@@ -13,7 +13,11 @@
     "443/tcp": 95
   },
   "map": ["config:rw", "ssl:rw"],
-  "options": {},
-  "schema": {},
+  "options": {
+    "password": ""
+  },
+  "schema": {
+    "password": "str?"
+  },
   "arch": ["amd64", "aarch64", "armv7"]
 }

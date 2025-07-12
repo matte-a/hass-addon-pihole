@@ -1,3 +1,5 @@
 FROM pihole/pihole:latest
 
-# No additional customization needed for basic Pi-hole add-on
+COPY set_password.sh /set_password.sh
+RUN chmod +x /set_password.sh
+ENTRYPOINT ["/set_password.sh"]
