@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
@@ -13,7 +13,7 @@
         "443/tcp": 95
     },
     "map": [
-        "addon_config:rw",
+        "config:rw",
         "ssl:rw"
     ],
     "options": {
@@ -23,7 +23,8 @@
         "password": "str?"
     },
     "environment": {
-        "WEBPASSWORD": "{password}"
+        "WEBPASSWORD": "{password}",
+        "PIHOLE_CONFIG_DIR": "/data"
     },
     "arch": [
         "amd64",
