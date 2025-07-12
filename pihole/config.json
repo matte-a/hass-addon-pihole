@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.23",
+    "version": "1.0.24",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
@@ -12,11 +12,11 @@
         "80/tcp": 94,
         "443/tcp": 95
     },
-     "map": [
-    "data",
-    "addon_config:rw",
-    "ssl:rw"
-  ],
+    "map": [
+        "data",
+        "addon_config:rw",
+        "ssl:rw"
+    ],
     "privileged": [
         "NET_ADMIN"
     ],
