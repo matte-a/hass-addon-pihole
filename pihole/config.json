@@ -1,6 +1,6 @@
 {
   "name": "Pi-hole",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "slug": "pihole",
   "description": "Network-wide ad blocking via Pi-hole.",
   "startup": "services",
@@ -20,7 +20,8 @@
     "password": "str?"
   },
   "environment": {
-    "WEBPASSWORD": "{password}"
+    "WEBPASSWORD": "{password}",
+    "PIHOLE_CONFIG_DIR": "/data"
   },
   "arch": ["amd64", "aarch64", "armv7"]
 }
