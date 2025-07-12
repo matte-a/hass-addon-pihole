@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.14",
+    "version": "1.0.15",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
@@ -17,9 +17,6 @@
         "ssl:rw"
     ],
     "host_network": true,
-    "hassio_api": true,
-    "hassio_role": "default",
-    "auth_api": true,
     "privileged": [
         "NET_ADMIN"
     ],
