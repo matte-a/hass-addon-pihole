@@ -1,12 +1,20 @@
-#!/bin/bash
-# Copy default Pi-hole config files to persistent storage if not present
-if [ ! -f /addon_config/pihole/setupVars.conf ]; then
-  cp /etc/.pihole/setupVars.example /addon_config/pihole/setupVars.conf
-fi
-if [ ! -f /addon_config/pihole/adlists.list ]; then
-  cp /etc/.pihole/adlists.default /addon_config/pihole/adlists.list 2>/dev/null || true
-fi
-# Add more custom file copies as needed
+#!/usr/bin/env bash
+set -e
 
-# Start Pi-hole as normal
-exec /s6-init
+DATA_ETC="/data/etc-pihole"
+DATA_DNS="/data/etc-dnsmasq.d"
+
+if [ ! -f "${DATA_ETC}/setupVars.conf" ]; then
+  echo "🔧 Initializing Pi-hole config"
+  cp -r /etc-pihole/* "${DATA_ETC}/"
+fi
+
+if [ ! -L "/etc/pihole" ]; then
+  rm -rf /etc/pihole
+  ln -s "${DATA_ETC}" /etc/pihole
+fi
+
+if [ ! -L "/etc/dnsmasq.d" ]; then
+  rm -rf /etc/dnsmasq.d
+  ln -s "${DATA_DNS}" /etc/dnsmasq.d
+fi
