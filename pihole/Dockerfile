@@ -16,6 +16,3 @@ RUN chmod +x /run.sh
 
 # Expose necessary ports if not using host network
 EXPOSE 53/tcp 53/udp 80/tcp
-
-# Use Supervisor’s init if desired, else run script directly
-CMD [ "/run.sh" ]
