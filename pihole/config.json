@@ -1,27 +1,35 @@
 {
-  "name": "Pi-hole",
-  "version": "1.0.6",
-  "slug": "pihole",
-  "description": "Network-wide ad blocking via Pi-hole.",
-  "startup": "services",
-  "boot": "auto",
-  "webui": "http://[HOST]:[PORT:94]/admin",
-  "ports": {
-    "53/tcp": 53,
-    "53/udp": 53,
-    "80/tcp": 94,
-    "443/tcp": 95
-  },
-  "map": ["config:rw", "ssl:rw"],
-  "options": {
-    "password": ""
-  },
-  "schema": {
-    "password": "str?"
-  },
-  "environment": {
-    "WEBPASSWORD": "{password}",
-    "PIHOLE_CONFIG_DIR": "/data"
-  },
-  "arch": ["amd64", "aarch64", "armv7"]
+    "name": "Pi-hole",
+    "version": "1.0.7",
+    "slug": "pihole",
+    "description": "Network-wide ad blocking via Pi-hole.",
+    "startup": "services",
+    "boot": "auto",
+    "webui": "http://[HOST]:[PORT:94]/admin",
+    "ports": {
+        "53/tcp": 53,
+        "53/udp": 53,
+        "80/tcp": 94,
+        "443/tcp": 95
+    },
+    "map": [
+        "addon_config:rw",
+        "homeassistant_config:rw",
+        "share:rw",
+        "ssl:rw"
+    ],
+    "options": {
+        "password": ""
+    },
+    "schema": {
+        "password": "str?"
+    },
+    "environment": {
+        "WEBPASSWORD": "{password}"
+    },
+    "arch": [
+        "amd64",
+        "aarch64",
+        "armv7"
+    ]
 }
