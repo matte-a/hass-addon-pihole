@@ -4,22 +4,13 @@ set -e
 DATA_ETC="/data/etc-pihole"
 DATA_DNS="/data/etc-dnsmasq.d"
 
-echo "🔧 Checking persistent config dirs..."
+echo "🔧 Ensuring persistent config dirs exist..."
+mkdir -p "${DATA_ETC}"
+mkdir -p "${DATA_DNS}"
 
-# Create empty dirs if first run
-if [ ! -f "${DATA_ETC}/setupVars.conf" ]; then
-  echo "📦 Creating empty /data/etc-pihole"
-  mkdir -p "${DATA_ETC}"
-fi
-
-if [ ! -f "${DATA_DNS}/01-pihole.conf" ]; then
-  echo "📦 Creating empty /data/etc-dnsmasq.d"
-  mkdir -p "${DATA_DNS}"
-fi
-
-# Replace /etc with symlinks to persistent storage
+echo "🔧 Forcing /etc symlinks to persistent storage..."
 rm -rf /etc/pihole /etc/dnsmasq.d
 ln -s "${DATA_ETC}" /etc/pihole
-ln -s "${DATA_DNS}" /etc/dnsmasq.d
+ln -s "${DATA_DNS}" /etc/dnsmasq.d"
 
-echo "✅ Init done: /etc points to /data"
+echo "✅ Init done: Pi-hole configs now stored in /data"

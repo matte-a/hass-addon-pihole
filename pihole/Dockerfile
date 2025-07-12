@@ -1,16 +1,16 @@
-# Use official Pi-hole image as base
+# Use official Pi-hole image
 FROM pihole/pihole:latest
 
-# Install extra tools if needed (optional)
+# Install optional tools
 RUN apk add --no-cache bash curl su-exec
 
-# Declare volumes → these are where Pi-hole keeps its state
-# Supervisor will map /data/etc-pihole → /etc/pihole etc.
-VOLUME /etc/pihole
-VOLUME /etc/dnsmasq.d
+# Copy init + run scripts
+COPY init_pihole_config.sh /init_pihole_config.sh
+COPY run.sh /run.sh
+RUN chmod +x /init_pihole_config.sh /run.sh
 
-# Expose required ports for DNS & web
+# Expose required ports
 EXPOSE 53/tcp 53/udp 80/tcp 443/tcp
 
-# Use Pi-hole's own entrypoint & CMD → no need to override
-# so Supervisor just runs the container as intended
+# Start custom entrypoint
+CMD [ "/run.sh" ]
