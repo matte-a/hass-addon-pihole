@@ -5,15 +5,14 @@
   "description": "Network-wide ad blocking via Pi-hole.",
   "startup": "services",
   "boot": "auto",
-  "webui": "http://[HOST]:[PORT:894]/admin",
+  "webui": "http://[HOST]:[PORT:94]/admin",
   "ports": {
     "53/tcp": 53,
     "53/udp": 53,
-    "80/tcp": 94,
-    "443/tcp": 95
+    "94/tcp": 94,
+    "95/tcp": 95
   },
   "map": ["config:rw", "ssl:rw"],
   "options": {},
-  "schema": {},
-  "image": "pihole/pihole:latest"
+  "schema": {}
 }

@@ -4,10 +4,10 @@ description: Network-wide ad blocking via Pi-hole.
 url: https://pi-hole.net/
 startup: services
 boot: auto
-webui: http://[HOST]:[PORT:80]/admin
+webui: http://[HOST]:[PORT:94]/admin
 ports:
   - 53/tcp
   - 53/udp
-  - 80/tcp
-  - 443/tcp
+  - 94/tcp
+  - 95/tcp
 image: "pihole/pihole:latest"
