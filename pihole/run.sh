@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-echo "🚀 Running init script..."
-bash /init_pihole_config.sh
+echo "🚀 Preparing persistent config dirs..."
+mkdir -p /data/etc-pihole /data/etc-dnsmasq.d
 
-echo "🧠 Starting Pi-hole FTL"
-/usr/bin/pihole-FTL &
+echo "🔗 Forcing symlinks"
+rm -rf /etc/pihole
+ln -s /data/etc-pihole /etc/pihole
 
-echo "🌐 Starting web server (lighttpd)"
-lighttpd -D -f /etc/lighttpd/lighttpd.conf
+rm -rf /etc/dnsmasq.d
+ln -s /data/etc-dnsmasq.d /etc/dnsmasq.d
+
+echo "🧠 Starting Pi-hole services"
+/start.sh
