@@ -1,6 +1,6 @@
 {
     "name": "Pi-hole",
-    "version": "1.0.28",
+    "version": "1.0.29",
     "slug": "pihole",
     "description": "Network-wide ad blocking via Pi-hole.",
     "startup": "services",
