@@ -1,3 +1,5 @@
+FROM pihole/pihole:latest
+
 RUN apk add --no-cache bash curl su-exec
 
 RUN mkdir -p /data/etc-pihole /data/etc-dnsmasq.d
